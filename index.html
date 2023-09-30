@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Define a CSS class for the animation */
+        .staggered-animation {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 3.5s ease forwards;
+        }
+
+        /* Define the keyframes for the animation */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="text-container">
+        <!-- Each letter is wrapped in a span with the animation class -->
+        <span class="staggered-animation">H</span>
+        <span class="staggered-animation">e</span>
+        <span class="staggered-animation">l</span>
+        <span class="staggered-animation">l</span>
+        <span class="staggered-animation">o</span>
+    </div>
+
+    <script>
+        // JavaScript to trigger the animation
+        const letters = document.querySelectorAll('.staggered-animation');
+        letters.forEach((letter, index) => {
+            // Apply a delay based on the index to stagger the animation
+            letter.style.animationDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+</html>
